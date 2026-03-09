@@ -95,7 +95,7 @@ pub async fn execute(
                 .maybe_closed(resolved_closed)
                 .maybe_offset(offset)
                 .maybe_order(order)
-                .ascending(ascending)
+                .maybe_ascending(ascending.then_some(true))
                 .build();
 
             let markets = client.markets(&request).await?;
